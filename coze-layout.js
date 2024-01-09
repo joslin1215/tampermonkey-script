@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         coze-layout
 // @namespace    http://tampermonkey.net/
-// @version      2024-01-09.01
+// @version      2024-01-09.02
 // @description  coze.com机器人页面布局控制
 // @author       JosLin1215
 // @match        https://www.coze.com/space/*/bot/*
@@ -21,7 +21,9 @@
     function changeLayout(){
         console.log('-------------------------------------------');
         let div = document.querySelector("#root > div > div > div > div > div.sidesheet-container");
-        let gridTemplateColumns = ++_changeCnt%2 == 0 ? '13fr 13fr 14fr' : '0fr 0fr 14fr'
+        const hidden = ++_changeCnt%2 == 0;
+        const gridTemplateColumns = hidden ? '13fr 13fr 14fr' : '0fr 0fr 14fr';
+        localStorage.setItem("_layout", hidden);
         div.style.gridTemplateColumns = gridTemplateColumns;
     }
 
@@ -58,6 +60,13 @@
         buttonElement.appendChild(spanElement);
 
         containerElement.appendChild(buttonElement);
+    }
+
+    function recoverLastLayout(){
+        var _layout = localStorage.getItem("_layout");
+        if( _layout && _layout === 'true'){
+            changeLayout();
+        }
     }
 
     var intervalId = setInterval(addBtn, 100);
