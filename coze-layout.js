@@ -28,19 +28,17 @@
     }
 
     function addBtn(){
-        console.log("addBtn");
-        if(_changeCnt > 0) return;
-        console.log('============================================');
-
-        // 将按钮元素添加到页面中的某个容器元素中
+        const addBtnLayoutId = 'c-btn-layout';
         var containerElement = document.querySelector(_targetSelector); // 替换为实际容器的 ID
         if(!containerElement) return;
-        clearInterval(intervalId);
+        
+        if(document.getElementById(addBtnLayoutId)) return;
 
         // 创建按钮元素
         var buttonElement = document.createElement('button');
 
         // 设置按钮元素的属性
+        buttonElement.id=addBtnLayoutId;
         buttonElement.className = 'semi-button';
         buttonElement.type = 'button';
         buttonElement.setAttribute('aria-disabled', 'false');
@@ -69,6 +67,6 @@
         }
     }
 
-    var intervalId = setInterval(addBtn, 100);
+    var intervalId = setInterval(addBtn, 500);
 
 })();
