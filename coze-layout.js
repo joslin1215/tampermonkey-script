@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         coze-layout
 // @namespace    http://tampermonkey.net/
-// @version      2024-01-13.01
+// @version      2024-02-05.01
 // @description  coze.com机器人页面布局控制
 // @author       JosLin1215
 // @match        https://www.coze.com/space/*/bot/*
