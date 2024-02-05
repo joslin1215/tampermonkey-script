@@ -5,6 +5,7 @@
 // @description  coze.com机器人页面布局控制
 // @author       JosLin1215
 // @match        https://www.coze.com/space/*/bot/*
+// @match        https://www.coze.cn/space/*/bot/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=coze.com
 // @grant        none
 // @license      GPL-2.0-only
